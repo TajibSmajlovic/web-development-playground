@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --active-color: #fff;
+    --active-bg-color: #0a0a0a;
+}
+
+body {
+    text-align: center;
+    color: var(--active-color);
+    font-family: sans-serif;
+    background-color: var(--active-bg-color);
+}
+.no-js {
+    height: 100vh;
+    background-color: var(--active-bg-color);
+    color: var(--active-color);
+}
+a {
+    text-decoration: none;
+    color: var(--active-color)
+}
+.main-container {
+    display: block;
+    height: 100vh;
+    background-color: var(--active-bg-color);
+    position: relative;
+    opacity: 1;
+    filter: blur(0);
+    transition: all 0.5s;
+}
+
+.input-box-cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heading1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 50px;
+}
+.reg-btn-label {
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    color: var(--active-color);
+    font-size: 20px;
+    z-index: 1000;
+}
+
+.reg-btn-label:hover {
+    cursor: pointer;
+}
+.reg-btn[type = "checkbox"] {
+    display: none;
+}
+.reg-btn[type = "checkbox"]:checked ~ .main-container{
+    filter: blur(10px);
+}
+.reg-btn[type = "checkbox"]:checked ~ .reg-container{
+    opacity: 0.9;
+    z-index: 1;
+}
+.reg-btn[type = "checkbox"]:checked ~ .reg-btn-label span::after {
+    content: "-";
+}
+
+
+.reg-btn-label span {
+    padding-right: 0;
+    transition: all 0.5s;
+}
+
+.reg-btn-label span::after {
+    content: "+";
+    position: absolute;
+    opacity: 0;
+    top: -5px;
+    right: -20px;
+    transition: 0.5s;
+    font-size: 30px;
+
+}
+.reg-btn-label:hover span {
+    padding-right: 25px;
+  }
+
+.reg-btn-label:hover span::after {
+    opacity: 1;
+    right: 0;
+}
+
+.form-cont {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+.form-cont input {
+    margin: 10px;
+    height: 50px;
+    width: 90%;
+    outline: none;
+}
+.form-cont input:focus {
+    background-color: var(--active-bg-color);
+}
+.form-cont input[type = "email"], .form-cont input[type = "password"], .form-cont input[type = "text"] {
+    border: none;
+    border-bottom: 1px solid var(--active-color);
+    background-color: var(--active-bg-color);
+    color: var(--active-color);
+    font-size: 16px;
+    padding: 0 20px;
+}
+.form-cont input[type = "email"]:hover::-webkit-input-placeholder, .form-cont input[type = "password"]:hover::-webkit-input-placeholder, .form-cont input[type = "text"]:hover::-webkit-input-placeholder {
+    font-size: 20px;
+}
+::-webkit-input-placeholder {
+    color: var(--active-color);
+    font-size: 16px;
+    transition: 0.3s;
+ }
+ .submit-btn {
+     max-width: 50%;
+     border: none;
+     border-bottom: 1px solid var(--active-color);
+     background-color: var(--active-bg-color);
+     color: var(--active-color);
+     font-size: 16px;
+     transition: all 0.3s;
+ }
+
+ .submit-btn:hover {
+    cursor: pointer;
+    font-size: 25px;
+ }
+
+ .reg-container {
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 0;
+     background-color: #0a0a0a;
+     height: 100vh;
+     width: 99vw;
+     opacity: 0;
+     transition: opacity 2s;
+ }
